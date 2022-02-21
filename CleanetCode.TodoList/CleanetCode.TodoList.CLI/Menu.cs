@@ -1,4 +1,4 @@
-using CleanetCode.TodoList.CLI.Operations;
+using CleanetCode.TodoList.BL.Operations;
 
 namespace CleanetCode.TodoList.CLI
 {

@@ -1,4 +1,4 @@
-namespace CleanetCode.TodoList.CLI.Models
+namespace CleanetCode.TodoList.BL.Models
 {
 	public class Task
 	{

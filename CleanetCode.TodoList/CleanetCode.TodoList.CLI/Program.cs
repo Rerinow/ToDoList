@@ -1,5 +1,5 @@
 using CleanetCode.TodoList.CLI;
-using CleanetCode.TodoList.CLI.Operations;
+using CleanetCode.TodoList.BL.Operations;
 using System.Text;
 
 Console.OutputEncoding = Encoding.UTF8;

@@ -1,6 +1,6 @@
-using CleanetCode.TodoList.CLI.Models;
+using CleanetCode.TodoList.BL.Models;
 
-namespace CleanetCode.TodoList.CLI.Storages
+namespace CleanetCode.TodoList.BL.Storages
 {
 	public static class UserStorage
 	{
@@ -9,7 +9,7 @@ namespace CleanetCode.TodoList.CLI.Storages
 		public static User? Get(string email)
 		{
 			_users.TryGetValue(email, out User? user);
-			return user;
+			return user; 
 		}
 
 		public static bool Create(User user)

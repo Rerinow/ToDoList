@@ -1,6 +1,6 @@
-namespace CleanetCode.TodoList.CLI.Operations
+namespace CleanetCode.TodoList.BL.Operations
 {
-	public class CreateNewTaskOperation : IOperation
+	public class ReadAllTasksOperation : IOperation
 	{
 		public string Name { get; }
 

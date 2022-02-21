@@ -1,6 +1,6 @@
-namespace CleanetCode.TodoList.CLI.Operations
+namespace CleanetCode.TodoList.BL.Operations
 {
-	public class DeleteTaskOperation : IOperation
+	public class UpdateTaskOperation : IOperation
 	{
 		public string Name { get; }
 

@@ -1,6 +1,6 @@
 using CleanetCode.TodoList.BL.Models;
 
-namespace CleanetCode.TodoList.CLI
+namespace CleanetCode.TodoList.BL
 {
 	public static class UserSession
 	{

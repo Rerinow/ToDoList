@@ -1,7 +1,8 @@
-using CleanetCode.TodoList.CLI.Models;
-using CleanetCode.TodoList.CLI.Storages;
+using CleanetCode.TodoList.BL;
+using CleanetCode.TodoList.BL.Models;
+using CleanetCode.TodoList.BL.Storages;
 
-namespace CleanetCode.TodoList.CLI.Operations
+namespace CleanetCode.TodoList.BL.Operations
 {
 	public class LoginUserOperation : IOperation
 	{

@@ -1,4 +1,4 @@
-namespace CleanetCode.TodoList.CLI.Operations
+namespace CleanetCode.TodoList.BL.Operations
 {
 	public interface IOperation
 	{
