@@ -28,10 +28,12 @@ namespace CleanetCode.TodoList.CLI
 		{
 			if (operationNumber < 0 || operationNumber >= _operations.Length)
 			{
-				return;
+				throw new ArgumentOutOfRangeException("Операция не найдена!");
 			}
-
+            Console.WriteLine(_operations[operationNumber].Description);
+			_operations[operationNumber].OperationValue = Console.ReadLine();
 			_operations[operationNumber].Execute();
+            Console.WriteLine(_operations[operationNumber].OperationStatus);
 		}
 	}
 }

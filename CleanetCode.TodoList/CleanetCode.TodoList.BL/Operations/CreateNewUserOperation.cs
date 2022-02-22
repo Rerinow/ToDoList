@@ -6,11 +6,13 @@ namespace CleanetCode.TodoList.BL.Operations
 	public class CreateNewUserOperation : IOperation
 	{
 		public string Name => "Создать нового пользователя";
-
+		public string Description => "Создайте пользователя используя email";
+		public string OperationValue { get; set; }
+		public string OperationType => "ActionWithValue";
+		public string OperationStatus { get; private set; } = "Операция не выполнена";
 		public void Execute()
 		{
-			Console.Write("Введите ваш email:");
-			string? email = Console.ReadLine();
+			string? email = OperationValue;
 
 			User newUser = new User
 			{
@@ -20,10 +22,9 @@ namespace CleanetCode.TodoList.BL.Operations
 			bool userCreated = UserStorage.Create(newUser);
 			if (!userCreated)
 			{
-				Console.WriteLine("Пользователь с таким email уже есть");
+				//custom exception
 			}
-
-			Console.WriteLine("Пользователь был успешно создан");
+			OperationStatus = "Операция успешно выполнена";
 		}
 	}
 }

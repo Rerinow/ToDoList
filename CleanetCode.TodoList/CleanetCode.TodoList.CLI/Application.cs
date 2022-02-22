@@ -15,25 +15,36 @@ namespace CleanetCode.TodoList.CLI
 
 			while (!userQuit)
 			{
-				List<string> operationNames = new List<string>();
-				operationNames.Add("q - выйти из программы");
-				operationNames.AddRange(_menu.GetOperationNames());
-
-
-				Console.WriteLine(string.Join("\n", operationNames));
-				Console.Write("Введите номер операции: ");
-
-				string? userInput = Console.ReadLine();
-				if (userInput != null && userInput.Trim().ToLower() == "q")
+				try
 				{
-					userQuit = true;
-				}
+					List<string> operationNames = new List<string>();
+					operationNames.Add("q - выйти из программы");
+					operationNames.AddRange(_menu.GetOperationNames());
 
-				bool isNumber = int.TryParse(userInput, out int operationNumber);
-				if (isNumber)
-				{
-					_menu.Enter(operationNumber);
+
+					Console.WriteLine(string.Join("\n", operationNames));
+					Console.Write("Введите номер операции: ");
+                
+					string? userInput = Console.ReadLine();
+					if (userInput != null && userInput.Trim().ToLower() == "q")
+					{
+						userQuit = true;
+					}
+
+					bool isNumber = int.TryParse(userInput, out int operationNumber);
+					if (isNumber)
+					{
+						_menu.Enter(operationNumber);
+					}
+				}catch(KeyNotFoundException ex)
+                {
+					Console.WriteLine(ex.Message);
+                }
+				catch(ArgumentOutOfRangeException ex)
+                {
+					Console.WriteLine(ex.Message);
 				}
+				
 			}
 		}
 	}
