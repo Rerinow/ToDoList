@@ -26,8 +26,8 @@ namespace CleanetCode.TodoList.CLI
 					formNames.AddRange(_menu.GetFormNames());
 
 
-					InfoConsole.WriteLine(string.Join("\n", formNames));
-					InputConsole.Write("Введите номер операции: ");
+					InfoMessage.WriteLine(string.Join("\n", formNames));
+					InputMessage.Write("Введите номер операции: ");
                 
 					string? userInput = Console.ReadLine();
 					if (userInput != null && userInput.Trim().ToLower() == "q")

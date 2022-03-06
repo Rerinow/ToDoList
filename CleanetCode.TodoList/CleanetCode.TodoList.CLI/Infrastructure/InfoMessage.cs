@@ -6,18 +6,12 @@ using System.Threading.Tasks;
 
 namespace CleanetCode.TodoList.CLI.Infrastructure
 {
-    public static class InputConsole
+    public static class InfoMessage
     {
         public static void WriteLine(string message)
         {
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(message);
-
-        }
-        public static void Write(string message)
-        {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(message);
 
         }
     }
