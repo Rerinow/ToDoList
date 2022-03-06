@@ -11,13 +11,13 @@ namespace CleanetCode.TodoList.CLI.Forms
         public void Execute()
         {
             var taskDTO = new TaskDTO();
-            InputConsole.WriteLine("Введите название задачи:");
+            InputMessage.WriteLine("Введите название задачи:");
             taskDTO.Name = Console.ReadLine();
-            InputConsole.WriteLine("Введите описание задачи:");
+            InputMessage.WriteLine("Введите описание задачи:");
             taskDTO.Description = Console.ReadLine();
             var createNewTaskOperation = new CreateNewTaskOperation();
             createNewTaskOperation.Execute(taskDTO);
-            InfoConsole.WriteLine("Задача успешно создана.");
+            InfoMessage.WriteLine("Задача успешно создана.");
         }
     }
 }

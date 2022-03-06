@@ -16,13 +16,13 @@ namespace CleanetCode.TodoList.CLI.Forms
             {
                 foreach (var taskDTO in tasksDTO)
                 {
-                    InfoConsole.WriteLine($"{taskDTO.Id} - {taskDTO.IsCompleted} - {taskDTO.Name} {taskDTO.Description} ");
+                    InfoMessage.WriteLine($"{taskDTO.Id} - {taskDTO.IsCompleted} - {taskDTO.Name} {taskDTO.Description} ");
                 }
                 
             }
             else
             {
-                InfoConsole.WriteLine("Задачи отсутсвуют.");
+                InfoMessage.WriteLine("Задачи отсутсвуют.");
             }
             
         }

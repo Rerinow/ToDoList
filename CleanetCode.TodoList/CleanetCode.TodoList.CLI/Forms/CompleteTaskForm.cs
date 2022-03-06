@@ -11,10 +11,10 @@ namespace CleanetCode.TodoList.CLI.Forms
         public void Execute()
         {
             TaskDTO taskDTO = new TaskDTO();
-            InputConsole.WriteLine("Введите номер задачи:");
+            InputMessage.WriteLine("Введите номер задачи:");
             taskDTO.Id = Console.ReadLine();
             new CompleteTaskOperation().Execute(taskDTO);
-            InfoConsole.WriteLine("Задача завершена.");
+            InfoMessage.WriteLine("Задача завершена.");
         }
     }
 }
