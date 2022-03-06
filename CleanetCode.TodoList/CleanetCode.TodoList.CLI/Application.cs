@@ -1,4 +1,6 @@
 using CleanetCode.TodoList.BL.CustomExceptions;
+using CleanetCode.TodoList.CLI.Infrastructure;
+using CleanetCode.TodoList.Infrastructure.CLI;
 
 namespace CleanetCode.TodoList.CLI
 {
@@ -24,8 +26,8 @@ namespace CleanetCode.TodoList.CLI
 					formNames.AddRange(_menu.GetFormNames());
 
 
-					Console.WriteLine(string.Join("\n", formNames));
-					Console.Write("Введите номер операции: ");
+					InfoConsole.WriteLine(string.Join("\n", formNames));
+					InputConsole.Write("Введите номер операции: ");
                 
 					string? userInput = Console.ReadLine();
 					if (userInput != null && userInput.Trim().ToLower() == "q")
@@ -40,28 +42,28 @@ namespace CleanetCode.TodoList.CLI
 					}
 				}catch(KeyNotFoundException ex)
                 {
-					Console.WriteLine(ex.Message);
-                }
+					ErrorMessage.WriteLine(ex.Message);
+				}
 				catch(ArgumentOutOfRangeException ex)
                 {
-					Console.WriteLine(ex.Message);
+					ErrorMessage.WriteLine(ex.Message);
 				}
 				catch(AlreadyExistsObjectException ex)
                 {
-                    Console.WriteLine(ex.Message);
-                }
+					ErrorMessage.WriteLine(ex.Message);
+				}
 				catch (UserSessionException ex)
                 {
-                    Console.WriteLine(ex.Message);
-                }
+					ErrorMessage.WriteLine(ex.Message);
+				}
 				catch (ArgumentNullException ex)
 				{
-					Console.WriteLine(ex.Message);
+					ErrorMessage.WriteLine(ex.Message);
 				}
 				catch (ArgumentException ex)
                 {
-                    Console.WriteLine(ex.Message);
-                }
+					ErrorMessage.WriteLine(ex.Message);
+				}
 				
 			}
 		}

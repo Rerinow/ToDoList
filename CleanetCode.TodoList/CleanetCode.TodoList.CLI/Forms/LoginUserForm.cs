@@ -1,5 +1,6 @@
 ﻿using CleanetCode.TodoList.BL.DTO;
 using CleanetCode.TodoList.BL.Operations;
+using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
@@ -9,7 +10,7 @@ namespace CleanetCode.TodoList.CLI.Forms
 
         public void Execute()
         {
-            Console.WriteLine("Введите Email:");
+            InputConsole.WriteLine("Введите Email:");
             string? email = Console.ReadLine();
             var userDTO = new UserDTO()
             {
@@ -17,7 +18,7 @@ namespace CleanetCode.TodoList.CLI.Forms
             };
             var loginUserOperation = new LoginUserOperation();
             loginUserOperation.Execute(userDTO);
-            Console.WriteLine("Пользователь успешно авторизован.");
+            InfoConsole.WriteLine("Пользователь успешно авторизован.");
         }
     }
 }

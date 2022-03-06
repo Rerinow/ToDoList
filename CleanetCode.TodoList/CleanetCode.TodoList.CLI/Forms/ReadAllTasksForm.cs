@@ -1,5 +1,6 @@
 ﻿using CleanetCode.TodoList.BL.DTO;
 using CleanetCode.TodoList.BL.Operations;
+using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
@@ -15,13 +16,13 @@ namespace CleanetCode.TodoList.CLI.Forms
             {
                 foreach (var taskDTO in tasksDTO)
                 {
-                    Console.WriteLine($"{taskDTO.Id} - {taskDTO.IsCompleted} - {taskDTO.Name} {taskDTO.Description} ");
+                    InfoConsole.WriteLine($"{taskDTO.Id} - {taskDTO.IsCompleted} - {taskDTO.Name} {taskDTO.Description} ");
                 }
                 
             }
             else
             {
-                Console.WriteLine("Задачи отсутсвуют.");
+                InfoConsole.WriteLine("Задачи отсутсвуют.");
             }
             
         }
