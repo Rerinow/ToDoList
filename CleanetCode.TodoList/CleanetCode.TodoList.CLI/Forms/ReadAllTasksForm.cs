@@ -4,7 +4,7 @@ using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
-    public class ReadAllTasksForm : IForm
+    public class ReadAllTasksForm : IForm, ITaskForm
     {
         public string Name => "Отобразить все задачи";
 

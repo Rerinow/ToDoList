@@ -4,7 +4,7 @@ using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
-    public class DeleteTaskForm : IForm
+    public class DeleteTaskForm : IForm, ITaskForm
     {
         public string Name => "Удаление задачи";
 

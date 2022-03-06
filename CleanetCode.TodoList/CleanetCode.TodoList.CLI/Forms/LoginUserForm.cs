@@ -4,7 +4,7 @@ using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
-    public class LoginUserForm : IForm
+    public class LoginUserForm : IForm, IUserForm
     {
         public string Name => "Залогинится используя Email";
 

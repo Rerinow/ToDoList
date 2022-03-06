@@ -23,7 +23,8 @@ namespace CleanetCode.TodoList.CLI
 				{
 					List<string> formNames = new List<string>();
 					formNames.Add("q - выйти из программы");
-					formNames.AddRange(_menu.GetFormNames());
+                    formNames.AddRange(_menu.GetFormNames());
+					
 
 
 					InfoMessage.WriteLine(string.Join("\n", formNames));

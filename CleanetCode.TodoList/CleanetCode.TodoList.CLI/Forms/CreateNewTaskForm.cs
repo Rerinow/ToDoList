@@ -4,7 +4,7 @@ using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
-    public class CreateNewTaskForm : IForm
+    public class CreateNewTaskForm : IForm, ITaskForm
     {
         public string Name => "Создание новой задачи";
 

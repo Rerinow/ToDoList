@@ -1,4 +1,4 @@
-using CleanetCode.TodoList.BL.Operations;
+using CleanetCode.TodoList.BL;
 using CleanetCode.TodoList.CLI.Forms;
 
 namespace CleanetCode.TodoList.CLI
@@ -18,8 +18,17 @@ namespace CleanetCode.TodoList.CLI
 
             for (int i = 0; i < forms.Length; i++)
             {
-                IForm form = forms[i];
-                formNames.Add($"{i} - {form.Name}");
+                if (forms[i] is IUserForm && UserSession.CurrentUser == null)
+                {
+                    IUserForm form = forms[i] as IUserForm;
+                    formNames.Add($"{i} - {form.Name}");
+                }
+
+                if (forms[i] is ITaskForm && UserSession.CurrentUser != null)
+                {
+                    ITaskForm form = forms[i] as ITaskForm;
+                    formNames.Add($"{i} - {form.Name}");
+                }
             }
             return formNames.ToArray();
         }

@@ -4,7 +4,7 @@ using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
-    public class CreateNewUserForm : IForm
+    public class CreateNewUserForm : IForm, IUserForm
     {
         public string Name => "Регистрация пользователя";
         public void Execute()

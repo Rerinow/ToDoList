@@ -4,7 +4,7 @@ using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
-    public class UpdateTaskForm : IForm
+    public class UpdateTaskForm : IForm, ITaskForm
     {
         public string Name => "Обновить задачу";
 

@@ -4,7 +4,7 @@ using CleanetCode.TodoList.CLI.Infrastructure;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
-    public class CompleteTaskForm : IForm
+    public class CompleteTaskForm : IForm, ITaskForm
     {
         public string Name => "Завершить задачу";
 
