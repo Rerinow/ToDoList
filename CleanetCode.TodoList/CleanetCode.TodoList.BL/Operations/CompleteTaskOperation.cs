@@ -14,7 +14,7 @@ namespace CleanetCode.TodoList.BL.Operations
 			}
 			if(!Guid.TryParse(taskDTO.Id, out var taskId))
             {
-				throw new ArgumentException($"Ошибка: Введите корректный формат идентификатор задачи");
+				throw new ArgumentException("Ошибка: Введите корректный формат идентификатор задачи");
             }
 			var task = TaskStorage.GetTask(taskId);
             if (task == null)
