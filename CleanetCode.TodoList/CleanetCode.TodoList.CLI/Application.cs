@@ -1,3 +1,5 @@
+using CleanetCode.TodoList.BL.CustomExceptions;
+
 namespace CleanetCode.TodoList.CLI
 {
 	public class Application
@@ -17,12 +19,12 @@ namespace CleanetCode.TodoList.CLI
 			{
 				try
 				{
-					List<string> operationNames = new List<string>();
-					operationNames.Add("q - выйти из программы");
-					operationNames.AddRange(_menu.GetOperationNames());
+					List<string> formNames = new List<string>();
+					formNames.Add("q - выйти из программы");
+					formNames.AddRange(_menu.GetFormNames());
 
 
-					Console.WriteLine(string.Join("\n", operationNames));
+					Console.WriteLine(string.Join("\n", formNames));
 					Console.Write("Введите номер операции: ");
                 
 					string? userInput = Console.ReadLine();
@@ -31,10 +33,10 @@ namespace CleanetCode.TodoList.CLI
 						userQuit = true;
 					}
 
-					bool isNumber = int.TryParse(userInput, out int operationNumber);
+					bool isNumber = int.TryParse(userInput, out int formNumber);
 					if (isNumber)
 					{
-						_menu.Enter(operationNumber);
+						_menu.Enter(formNumber);
 					}
 				}catch(KeyNotFoundException ex)
                 {
@@ -44,7 +46,18 @@ namespace CleanetCode.TodoList.CLI
                 {
 					Console.WriteLine(ex.Message);
 				}
-				
+				catch(NullOrEmptyFieldException ex)
+                {
+					Console.WriteLine(ex.Message);
+                }
+				catch(AlreadyExistsObjectException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+				catch (UserSessionException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
 			}
 		}
 	}

@@ -1,16 +1,29 @@
+using CleanetCode.TodoList.BL.CustomExceptions;
+using CleanetCode.TodoList.BL.DTO;
+using CleanetCode.TodoList.BL.Storages;
+
 namespace CleanetCode.TodoList.BL.Operations
 {
-	public class ReadAllTasksOperation : IOperation
+	public class ReadAllTasksOperation
 	{
-		public string Name { get; }
-		public string Description { get; }
-		public string OperationValue { get; set; }
-		public string OperationType => "ActionWithValue";
-		public string OperationStatus { get; private set; } = "Операция не выполнена";
-
-		public void Execute()
+		public List<TaskDTO> Execute()
 		{
-			throw new NotImplementedException();
+            if (UserSession.CurrentUser == null)
+            {
+				throw new UserSessionException("Ошибка: Пожалуйста зарегистрируйтесь или залогинтесь");
+			}
+			List<TaskDTO> tasksDTO = new List<TaskDTO>();
+			var tasks = TaskStorage.GetTasks().FindAll(t => t.UserId == UserSession.CurrentUser.Id);
+			foreach (var task in tasks)
+            {
+				tasksDTO.Add(new TaskDTO()
+				{
+					Id = task.Id.ToString(),
+					Name = task.Name,
+					Description = task.Description,
+				});
+            }
+			return tasksDTO;
 		}
 	}
 }

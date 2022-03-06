@@ -1,39 +1,36 @@
 using CleanetCode.TodoList.BL.Operations;
+using CleanetCode.TodoList.CLI.Forms;
 
 namespace CleanetCode.TodoList.CLI
 {
 	public class Menu
 	{
-		private IOperation[] _operations;
+		private IForm[] forms;
 
-		public Menu(IOperation[] operations)
+        public Menu(IForm[] forms)
+        {
+            this.forms = forms;
+        }
+
+        public string[] GetFormNames()
+        {
+            List<string> formNames = new List<string>();
+
+            for (int i = 0; i < forms.Length; i++)
+            {
+                IForm form = forms[i];
+                formNames.Add($"{i} - {form.Name}");
+            }
+            return formNames.ToArray();
+        }
+
+        public void Enter(int formNumber)
 		{
-			_operations = operations;
-		}
-
-		public string[] GetOperationNames()
-		{
-			List<string> operationNames = new List<string>();
-
-			for (int i = 0; i < _operations.Length; i++)
+			if (formNumber < 0 || formNumber >= forms.Length)
 			{
-				IOperation operation = _operations[i];
-				operationNames.Add($"{i} - {operation.Name}");
+				throw new ArgumentOutOfRangeException("Ошибка: Форма не найдена!");
 			}
-
-			return operationNames.ToArray();
-		}
-
-		public void Enter(int operationNumber)
-		{
-			if (operationNumber < 0 || operationNumber >= _operations.Length)
-			{
-				throw new ArgumentOutOfRangeException("Операция не найдена!");
-			}
-            Console.WriteLine(_operations[operationNumber].Description);
-			_operations[operationNumber].OperationValue = Console.ReadLine();
-			_operations[operationNumber].Execute();
-            Console.WriteLine(_operations[operationNumber].OperationStatus);
+            forms[formNumber].Execute();
 		}
 	}
 }

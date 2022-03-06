@@ -1,18 +1,20 @@
+using CleanetCode.TodoList.BL.CustomExceptions;
+using CleanetCode.TodoList.BL.DTO;
 using CleanetCode.TodoList.BL.Models;
 using CleanetCode.TodoList.BL.Storages;
 
 namespace CleanetCode.TodoList.BL.Operations
 {
-	public class CreateNewUserOperation : IOperation
+	public class CreateNewUserOperation 
 	{
-		public string Name => "Создать нового пользователя";
-		public string Description => "Создайте пользователя используя email";
-		public string OperationValue { get; set; }
-		public string OperationType => "ActionWithValue";
-		public string OperationStatus { get; private set; } = "Операция не выполнена";
-		public void Execute()
+		public void Execute(UserDTO userDTO)
 		{
-			string? email = OperationValue;
+			string? email = userDTO.Email;
+
+            if (String.IsNullOrEmpty(email))
+            {
+				throw new NullOrEmptyFieldException("Ошибка: Заполните Email!");
+            }
 
 			User newUser = new User
 			{
@@ -22,9 +24,9 @@ namespace CleanetCode.TodoList.BL.Operations
 			bool userCreated = UserStorage.Create(newUser);
 			if (!userCreated)
 			{
-				//custom exception
+				throw new AlreadyExistsObjectException($"Ошибка: Данный {email} уже зарегистрирован!");
 			}
-			OperationStatus = "Операция успешно выполнена";
+			UserSession.CurrentUser = newUser;
 		}
 	}
 }
