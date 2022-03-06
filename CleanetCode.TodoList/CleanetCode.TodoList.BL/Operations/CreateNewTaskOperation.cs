@@ -18,7 +18,7 @@ namespace CleanetCode.TodoList.BL.Operations
 
 			if (String.IsNullOrEmpty(taskName))
 			{
-				throw new NullOrEmptyFieldException("Ошибка: Заполните название задачи!");
+				throw new ArgumentNullException("Ошибка: Заполните название задачи!");
 			}
 
 			Models.Task newTask = new Models.Task()

@@ -1,10 +1,5 @@
 ﻿using CleanetCode.TodoList.BL.DTO;
 using CleanetCode.TodoList.BL.Operations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {

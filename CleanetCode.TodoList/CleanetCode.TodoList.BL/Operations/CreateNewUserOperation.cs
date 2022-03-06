@@ -13,7 +13,7 @@ namespace CleanetCode.TodoList.BL.Operations
 
             if (String.IsNullOrEmpty(email))
             {
-				throw new NullOrEmptyFieldException("Ошибка: Заполните Email!");
+				throw new ArgumentNullException("Ошибка: Заполните Email!");
             }
 
 			User newUser = new User

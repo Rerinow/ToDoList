@@ -1,10 +1,5 @@
 ﻿using CleanetCode.TodoList.BL.DTO;
 using CleanetCode.TodoList.BL.Operations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanetCode.TodoList.CLI.Forms
 {
@@ -20,7 +15,7 @@ namespace CleanetCode.TodoList.CLI.Forms
             {
                 foreach (var taskDTO in tasksDTO)
                 {
-                    Console.WriteLine($"{taskDTO.Id} - {taskDTO.Name} {taskDTO.Description}");
+                    Console.WriteLine($"{taskDTO.Id} - {taskDTO.IsCompleted} - {taskDTO.Name} {taskDTO.Description} ");
                 }
                 
             }

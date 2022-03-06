@@ -16,5 +16,6 @@ namespace CleanetCode.TodoList.BL.Storages
 		{
 			return _users.TryAdd(user.Email, user);
 		}
+
 	}
 }

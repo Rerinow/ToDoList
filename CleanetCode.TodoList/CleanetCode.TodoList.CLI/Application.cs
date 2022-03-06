@@ -46,10 +46,6 @@ namespace CleanetCode.TodoList.CLI
                 {
 					Console.WriteLine(ex.Message);
 				}
-				catch(NullOrEmptyFieldException ex)
-                {
-					Console.WriteLine(ex.Message);
-                }
 				catch(AlreadyExistsObjectException ex)
                 {
                     Console.WriteLine(ex.Message);
@@ -58,6 +54,15 @@ namespace CleanetCode.TodoList.CLI
                 {
                     Console.WriteLine(ex.Message);
                 }
+				catch (ArgumentNullException ex)
+				{
+					Console.WriteLine(ex.Message);
+				}
+				catch (ArgumentException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+				
 			}
 		}
 	}

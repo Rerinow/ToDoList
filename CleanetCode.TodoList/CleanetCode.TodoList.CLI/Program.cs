@@ -11,6 +11,9 @@ IForm[] forms = new IForm[]
     new LoginUserForm(),
     new CreateNewTaskForm(),
     new ReadAllTasksForm(),
+    new CompleteTaskForm(),
+    new UpdateTaskForm(),
+    new DeleteTaskForm(),
 };
 
 Menu menu = new Menu(forms);

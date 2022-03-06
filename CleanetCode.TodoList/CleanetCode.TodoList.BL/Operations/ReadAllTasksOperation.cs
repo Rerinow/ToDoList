@@ -13,7 +13,7 @@ namespace CleanetCode.TodoList.BL.Operations
 				throw new UserSessionException("Ошибка: Пожалуйста зарегистрируйтесь или залогинтесь");
 			}
 			List<TaskDTO> tasksDTO = new List<TaskDTO>();
-			var tasks = TaskStorage.GetTasks().FindAll(t => t.UserId == UserSession.CurrentUser.Id);
+			var tasks = TaskStorage.GetTasks();
 			foreach (var task in tasks)
             {
 				tasksDTO.Add(new TaskDTO()
@@ -21,6 +21,7 @@ namespace CleanetCode.TodoList.BL.Operations
 					Id = task.Id.ToString(),
 					Name = task.Name,
 					Description = task.Description,
+					IsCompleted = task.IsCompleted
 				});
             }
 			return tasksDTO;

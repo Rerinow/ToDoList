@@ -13,7 +13,7 @@ namespace CleanetCode.TodoList.BL.Operations
 			string? email = userDTO.Email;
 			if (String.IsNullOrEmpty(email))
 			{
-				throw new NullOrEmptyFieldException("Ошибка: Заполните Email!");
+				throw new ArgumentNullException("Ошибка: Заполните Email!");
 			}
 			User? user = UserStorage.Get(email);
 
