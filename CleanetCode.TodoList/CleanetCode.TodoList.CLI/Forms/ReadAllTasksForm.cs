@@ -16,7 +16,8 @@ namespace CleanetCode.TodoList.CLI.Forms
             {
                 foreach (var taskDTO in tasksDTO)
                 {
-                    InfoMessage.WriteLine($"{taskDTO.Id} - {taskDTO.IsCompleted} - {taskDTO.Name} {taskDTO.Description} ");
+                    var taskStatus = taskDTO.IsCompleted ? "Completed" : "In Progress";
+                    InfoMessage.WriteLine($"{taskDTO.Id} - {taskStatus} - {taskDTO.Name} {taskDTO.Description} ");
                 }
                 
             }
