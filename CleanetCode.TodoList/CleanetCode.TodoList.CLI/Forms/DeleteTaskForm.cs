@@ -6,15 +6,15 @@ namespace CleanetCode.TodoList.CLI.Forms
 {
     public class DeleteTaskForm : IForm, ITaskForm
     {
-        public string Name => "Удаление задачи";
+        public string Name => "Delete task";
 
         public void Execute()
         {
             TaskDTO taskDTO = new TaskDTO();
-            InputMessage.WriteLine("Введите номер задачи:");
+            InputMessage.WriteLine("Please provide task id:");
             taskDTO.Id = Console.ReadLine();
             new DeleteTaskOperation().Execute(taskDTO);
-            InfoMessage.WriteLine("Задача завершена.");
+            InfoMessage.WriteLine("Task was completed.");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace CleanetCode.TodoList.BL.Operations
 
             if (String.IsNullOrEmpty(email))
             {
-				throw new ArgumentNullException("Ошибка: Заполните Email!");
+				throw new ArgumentNullException("Error: Please fill your email");
             }
 
 			User newUser = new User
@@ -24,7 +24,7 @@ namespace CleanetCode.TodoList.BL.Operations
 			bool userCreated = UserStorage.Create(newUser);
 			if (!userCreated)
 			{
-				throw new AlreadyExistsObjectException($"Ошибка: Данный {email} уже зарегистрирован!");
+				throw new AlreadyExistsObjectException($"Error: This {email} already registered!");
 			}
 			UserSession.CurrentUser = newUser;
 		}

@@ -6,11 +6,11 @@ namespace CleanetCode.TodoList.CLI.Forms
 {
     public class LoginUserForm : IForm, IUserForm
     {
-        public string Name => "Залогинится используя Email";
+        public string Name => "Login by email";
 
         public void Execute()
         {
-            InputMessage.WriteLine("Введите Email:");
+            InputMessage.WriteLine("Please provide your email:");
             string? email = Console.ReadLine();
             var userDTO = new UserDTO()
             {
@@ -18,7 +18,7 @@ namespace CleanetCode.TodoList.CLI.Forms
             };
             var loginUserOperation = new LoginUserOperation();
             loginUserOperation.Execute(userDTO);
-            InfoMessage.WriteLine("Пользователь успешно авторизован.");
+            InfoMessage.WriteLine("User was authorized.");
         }
     }
 }

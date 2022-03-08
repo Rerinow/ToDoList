@@ -11,14 +11,14 @@ namespace CleanetCode.TodoList.BL.Operations
 		{
 			if(UserSession.CurrentUser == null)
             {
-				throw new UserSessionException("Ошибка: Пожалуйста зарегистрируйтесь или залогинтесь");
+				throw new UserSessionException("Error: Please register or login");
 			}
 
 			string? taskName = taskDTO.Name;
 
 			if (String.IsNullOrEmpty(taskName))
 			{
-				throw new ArgumentNullException("Ошибка: Заполните название задачи!");
+				throw new ArgumentNullException("Error: Please fill task's name");
 			}
 
 			Models.Task newTask = new Models.Task()
@@ -29,7 +29,7 @@ namespace CleanetCode.TodoList.BL.Operations
 				UserId = UserSession.CurrentUser.Id
 			};
 			TaskStorage.CreateTask(newTask);
-
+			TaskStorage.SaveChanges();
 		}
 	}
 }

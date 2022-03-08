@@ -10,7 +10,7 @@ namespace CleanetCode.TodoList.BL.Operations
 		{
             if (UserSession.CurrentUser == null)
             {
-				throw new UserSessionException("Ошибка: Пожалуйста зарегистрируйтесь или залогинтесь");
+				throw new UserSessionException("Error: Please register or login");
 			}
 			List<TaskDTO> tasksDTO = new List<TaskDTO>();
 			var tasks = TaskStorage.GetTasks();

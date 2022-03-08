@@ -10,16 +10,16 @@ namespace CleanetCode.TodoList.BL.Operations
 		{
 			if (UserSession.CurrentUser == null)
 			{
-				throw new UserSessionException("Ошибка: Пожалуйста зарегистрируйтесь или залогинтесь");
+				throw new UserSessionException("Error: Please login or register");
 			}
 			if (!Guid.TryParse(taskDTO.Id, out var taskId))
 			{
-				throw new ArgumentException($"Ошибка: Введите корректный формат идентификатор задачи");
+				throw new ArgumentException($"Error: Please provide correct task id");
 			}
 			var task = TaskStorage.GetTask(taskId);
             if (task == null)
             {
-                throw new ArgumentNullException($"Ошибка: {taskId} не найден!");
+                throw new ArgumentNullException($"Error: {taskId} not found!");
             }
             if (!String.IsNullOrEmpty(taskDTO.Name))
             {
@@ -30,7 +30,7 @@ namespace CleanetCode.TodoList.BL.Operations
 				task.Description = taskDTO.Description;
 			}
 			task.UpdatedDate = DateTime.Now;
-
+			TaskStorage.SaveChanges();
 		}
     }
 }

@@ -6,20 +6,20 @@ namespace CleanetCode.TodoList.CLI.Forms
 {
     public class UpdateTaskForm : IForm, ITaskForm
     {
-        public string Name => "Обновить задачу";
+        public string Name => "Update task";
 
         public void Execute()
         {
             var taskDTO = new TaskDTO();
-            InputMessage.WriteLine("Введите номер задачи:");
+            InputMessage.WriteLine("Please provide task id:");
             taskDTO.Id = Console.ReadLine();
-            InputMessage.WriteLine("Введите название задачи:");
+            InputMessage.WriteLine("Please provide task name:");
             taskDTO.Name = Console.ReadLine();
-            InputMessage.WriteLine("Введите описание задачи:");
+            InputMessage.WriteLine("Please provide task description:");
             taskDTO.Description = Console.ReadLine();
             var updateTaskOperation = new UpdateTaskOperation();
             updateTaskOperation.Execute(taskDTO);
-            InfoMessage.WriteLine("Задача успешно обновлена.");
+            InfoMessage.WriteLine("Task was updated.");
         }
     }
 }

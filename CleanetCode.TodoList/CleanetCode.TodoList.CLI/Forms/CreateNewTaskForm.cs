@@ -6,18 +6,18 @@ namespace CleanetCode.TodoList.CLI.Forms
 {
     public class CreateNewTaskForm : IForm, ITaskForm
     {
-        public string Name => "Создание новой задачи";
+        public string Name => "Create new task";
 
         public void Execute()
         {
             var taskDTO = new TaskDTO();
-            InputMessage.WriteLine("Введите название задачи:");
+            InputMessage.WriteLine("Please provide task name:");
             taskDTO.Name = Console.ReadLine();
-            InputMessage.WriteLine("Введите описание задачи:");
+            InputMessage.WriteLine("Please provide task description:");
             taskDTO.Description = Console.ReadLine();
             var createNewTaskOperation = new CreateNewTaskOperation();
             createNewTaskOperation.Execute(taskDTO);
-            InfoMessage.WriteLine("Задача успешно создана.");
+            InfoMessage.WriteLine("Task was created.");
         }
     }
 }

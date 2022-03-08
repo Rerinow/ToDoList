@@ -6,7 +6,7 @@ namespace CleanetCode.TodoList.CLI.Forms
 {
     public class ReadAllTasksForm : IForm, ITaskForm
     {
-        public string Name => "Отобразить все задачи";
+        public string Name => "Show all tasks";
 
         public void Execute()
         {
@@ -22,7 +22,7 @@ namespace CleanetCode.TodoList.CLI.Forms
             }
             else
             {
-                InfoMessage.WriteLine("Задачи отсутсвуют.");
+                InfoMessage.WriteLine("No tasks.");
             }
             
         }

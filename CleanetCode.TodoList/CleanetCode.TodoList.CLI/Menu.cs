@@ -37,7 +37,7 @@ namespace CleanetCode.TodoList.CLI
 		{
 			if (formNumber < 0 || formNumber >= forms.Length)
 			{
-				throw new ArgumentOutOfRangeException("Ошибка: Форма не найдена!");
+				throw new ArgumentOutOfRangeException("Error: Form not found!");
 			}
             forms[formNumber].Execute();
 		}

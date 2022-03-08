@@ -6,10 +6,10 @@ namespace CleanetCode.TodoList.CLI.Forms
 {
     public class CreateNewUserForm : IForm, IUserForm
     {
-        public string Name => "Регистрация пользователя";
+        public string Name => "Register by email";
         public void Execute()
         {
-            InputMessage.WriteLine("Введите Email:");
+            InputMessage.WriteLine("Please provide your email:");
             string? email = Console.ReadLine();
             var userDTO = new UserDTO()
             {
@@ -17,7 +17,7 @@ namespace CleanetCode.TodoList.CLI.Forms
             };
             var createNewUserOperation = new CreateNewUserOperation();
             createNewUserOperation.Execute(userDTO);
-            InfoMessage.WriteLine("Пользователь успешно зарегистрирован.");
+            InfoMessage.WriteLine("User was created.");
         }
     }
 }

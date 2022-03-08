@@ -10,18 +10,19 @@ namespace CleanetCode.TodoList.BL.Operations
 		{
 			if (UserSession.CurrentUser == null)
 			{
-				throw new UserSessionException("Ошибка: Пожалуйста зарегистрируйтесь или залогинтесь");
+				throw new UserSessionException("Error: Please register or login");
 			}
 			if (!Guid.TryParse(taskDTO.Id, out var taskId))
 			{
-				throw new ArgumentException($"Ошибка: Введите корректный формат идентификатор задачи");
+				throw new ArgumentException($"Error: Please provide correct task id");
 			}
 			var task = TaskStorage.GetTask(taskId);
 			if (task == null)
 			{
-				throw new ArgumentNullException($"Ошибка: {taskId} не найден!");
+				throw new ArgumentNullException($"Error: {taskId} not found!");
 			}
 			TaskStorage.DeleteTask(task);
+			TaskStorage.SaveChanges();
 		}
 	}
 }

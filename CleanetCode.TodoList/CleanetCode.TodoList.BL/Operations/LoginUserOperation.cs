@@ -13,13 +13,13 @@ namespace CleanetCode.TodoList.BL.Operations
 			string? email = userDTO.Email;
 			if (String.IsNullOrEmpty(email))
 			{
-				throw new ArgumentNullException("Ошибка: Заполните Email!");
+				throw new ArgumentNullException("Error: Please provide your email");
 			}
 			User? user = UserStorage.Get(email);
 
 			if (user == null)
 			{
-				throw new KeyNotFoundException($"Ошибка: Пользователь не найден.");
+				throw new KeyNotFoundException($"Error: User not found");
 			}
 			UserSession.CurrentUser = user;
 		}

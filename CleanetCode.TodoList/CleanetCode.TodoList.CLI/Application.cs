@@ -22,13 +22,13 @@ namespace CleanetCode.TodoList.CLI
 				try
 				{
 					List<string> formNames = new List<string>();
-					formNames.Add("q - выйти из программы");
+					formNames.Add("q - Exit");
                     formNames.AddRange(_menu.GetFormNames());
 					
 
 
 					InfoMessage.WriteLine(string.Join("\n", formNames));
-					InputMessage.Write("Введите номер операции: ");
+					InputMessage.Write("Please provide operation id: ");
                 
 					string? userInput = Console.ReadLine();
 					if (userInput != null && userInput.Trim().ToLower() == "q")
